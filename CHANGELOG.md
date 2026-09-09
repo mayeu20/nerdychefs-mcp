@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Add MCP Registry metadata: `mcpName` in package.json and a `server.json`. No functional change.
+
 ## 0.1.0
 
 - Add eight MCP tools for prompt search, lookup, random picks, and browsing.

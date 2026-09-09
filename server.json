@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mayeu20/nerdychefs-mcp",
+  "title": "NerdyChefs Prompts",
+  "description": "Search, browse and pick from the free NerdyChefs.ai prompt library from any MCP client.",
+  "version": "0.1.1",
+  "repository": {
+    "url": "https://github.com/mayeu20/nerdychefs-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.nerdychefs.ai/mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "nerdychefs-mcp",
+      "version": "0.1.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

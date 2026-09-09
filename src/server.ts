@@ -37,7 +37,7 @@ async function tool(action: () => Promise<JsonObject>) {
 }
 
 export function createServer(options: DataOptions = {}): McpServer {
-  const server = new McpServer({ name: 'nerdychefs-mcp', version: '0.1.0' });
+  const server = new McpServer({ name: 'nerdychefs-mcp', version: '0.1.1' });
   const data = new DataStore(options);
   const promptData = async () => {
     const [prompts, packs] = await Promise.all([data.load('prompts'), data.load('packs')]);
