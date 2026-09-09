@@ -1,0 +1,276 @@
+{
+  "_meta": {
+    "description": "NerdyChefs.ai Prompts API",
+    "version": "1.0",
+    "total_prompts": 12,
+    "generated_at": "2026-09-09T05:44:21.486Z",
+    "source": "Supabase",
+    "docs": "https://www.nerdychefs.ai/api"
+  },
+  "prompts": [
+    {
+      "id": 18,
+      "title": "The Universal Locator",
+      "prompt": "Below is a document and a question about it. Answer the question using only this document, and make every claim carry the line it rests on.\n\nFor each claim in your answer, give me three things in this order:\n\nCLAIM: what you are asserting, in one sentence.\nQUOTE: the exact sentence from the document that the claim rests on, verbatim, inside quote marks. Where a claim rests on more than one sentence, quote all of them, separately. Do not join them with an ellipsis.\nWHERE: the section number or heading the quoted sentence sits under, and the page where the document shows one.\n\nIf you cannot find a line that carries a claim, write NOT FOUND against it and move on. NOT FOUND is a correct answer here and I would rather have it than a sentence that sits near the point.\n\n---\nNOT FOUND means you could not find a line, not that the document is silent. Word it that way every time.\nDo not paraphrase inside the quote marks. A tidied quote is a summary of one sentence, and it cannot be searched for, which is the only reason the quote is there at all.\nDo not fill a gap with what the document probably means, what a document of this type usually says, or anything you know from outside it.\nDo not rank your claims, do not tell me which one matters most, and do not close with an overall assessment.\n\nThe question:\n[state it in one sentence]\n\nThe document:\n[paste]",
+      "use_case": "Make every claim carry the verbatim line it rests on, and make NOT FOUND a permitted answer.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Locator Itself",
+      "pack_title": "PATTERN-008: The LOCATOR Pattern",
+      "tags": [
+        "locator",
+        "the-locator-itself",
+        "citations",
+        "verification",
+        "long-documents"
+      ],
+      "personas": [
+        "Business Analyst",
+        "Consultant",
+        "Project Manager",
+        "Operations Manager"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Sort It Into Three Lists",
+      "prompt": "Here is an answer you produced about a document, and the document itself. Do not defend the answer and do not improve it. Sort it.\n\nTake every claim in the answer and put it in exactly one of three lists:\n\nDIRECTLY STATED: a line in the document says this. Quote the line, verbatim, with its section.\nINFERRED: no single line says it. You concluded it from what is there. Name the two or three lines you built it from, quoted, and say in one line what the step between them was.\nNOT FOUND: you cannot support it from this document at all.\n\nClose with one line: how many claims landed in each list.\n\n---\nEvery claim goes somewhere. A claim you cannot place is a NOT FOUND, not a DIRECTLY STATED with a loose quote attached to it.\nINFERRED is not a confession and I am not asking you to withdraw those claims. I am asking to know which parts of my answer are a reading rather than a quote, because a reading is where somebody sensible could have read it differently.\nDo not move a claim into DIRECTLY STATED on the strength of a line that mentions the subject. The line has to carry the claim.\nDo not add claims that were not in the answer, and do not merge two claims into one to make them easier to place.\n\nThe answer:\n[paste]\n\nThe document:\n[paste]",
+      "use_case": "Split an answer into what the document states, what was inferred from it, and what cannot be supported at all.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Locator Itself",
+      "pack_title": "PATTERN-008: The LOCATOR Pattern",
+      "tags": [
+        "locator",
+        "the-locator-itself",
+        "inference",
+        "audit",
+        "claims"
+      ],
+      "personas": [
+        "Business Analyst",
+        "Compliance Manager",
+        "Consultant",
+        "Operations Manager"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Does The Quote Carry The Claim",
+      "prompt": "Here is a set of claims, each with a quoted line and a section reference, and the document they came from. I am not asking whether the claims are true. I am asking one question of each pair, and only that question: does the quoted line carry the claim, or does it merely sit near it?\n\nSort every pair into four buckets:\n\nCARRIES IT: the quoted line settles the claim on its own.\nNARROWER: the line supports a smaller version of the claim. State the smaller version in one sentence.\nADJACENT: the line is about the same subject and settles nothing. Say what it does settle.\nNOT IN THE DOCUMENT: the quoted line does not appear in the document in that form. Give the nearest thing you can find, or write no near match.\n\nFor every pair that is not CARRIES IT, add one line: what a line that did carry the claim would have to say.\n\n---\nThis is the failure the whole exercise exists for, so treat ADJACENT as the default and make each pair earn CARRIES IT.\nCheck the quote against the document word by word before you accept it. A citation to a real section that does not support the claim is more expensive than no citation at all, because it arrives with a verification handle attached and spends the doubt I would otherwise have kept.\nWhere the quoted line depends on a definition or an exception elsewhere in the document, quote that too. A line that carries a claim only until you read the carve-out is NARROWER, not CARRIES IT.\nDo not re-answer the original question, and do not offer me better claims.\n\nThe claims and their citations:\n[paste]\n\nThe document:\n[paste]",
+      "use_case": "Catch the expensive failure: a real citation to a real section that does not actually support the claim.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Locator Itself",
+      "pack_title": "PATTERN-008: The LOCATOR Pattern",
+      "tags": [
+        "locator",
+        "the-locator-itself",
+        "false-citations",
+        "spot-check",
+        "verification"
+      ],
+      "personas": [
+        "Legal Counsel",
+        "Compliance Manager",
+        "Business Analyst",
+        "Consultant"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "The Universal Document Map",
+      "prompt": "Below is a document. Do not summarise it and do not answer any question about it yet. Map it.\n\nWork through it in the order it is written, and for every section give me exactly three things:\n\nHEADING: the heading exactly as it appears, including its number. Where a block has no heading, write NO HEADING and give its first six words instead.\nDOES: what that section does, in one line. Pick the verb: defines, obliges, limits, prices, grants, prohibits, describes a process, assigns responsibility, states an exception, or provides background only.\nCONTAINS: whether the section holds a number, a date, a named obligation, or an exception. Say which of the four, or write none.\n\nThen two lists, and these are the point of the exercise:\n\nMISMATCHES: any section whose heading does not match what is actually inside it.\nORPHANS: anything substantial sitting under no heading at all. Quote its first line.\n\n---\nDOES is one line and it is a job title, not a precis. \"Defines what counts as personal data\" is right. \"Discusses the definition of personal data and explains how it applies throughout\" is a summary wearing a costume. Where you cannot name what a section does in one line, write UNCLEAR and move on.\nDo not rank sections by importance, do not tell me what matters, and do not give an overall assessment. Do not answer the question I am obviously going to ask next.\nWhere you cannot see something, write not present in what I can see. Never state that the document does not contain something.\n\nThe document:\n[paste]",
+      "use_case": "Make a long document hand back its own shape before you ask it a single question.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Map Itself",
+      "pack_title": "PATTERN-007: The DOCUMENT MAP Pattern",
+      "tags": [
+        "document-map",
+        "the-map-itself",
+        "long-documents",
+        "structure",
+        "orientation"
+      ],
+      "personas": [
+        "Business Analyst",
+        "Consultant",
+        "Project Manager",
+        "Operations Manager"
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Aim Before You Fire",
+      "prompt": "Here is a map of a document, and the decision I actually have to make. Sort the map against the decision. Do not answer anything yet.\n\nBEARS ON IT: the sections that could change the decision. For each one: the single question I should put to that section, and what a BAD answer to that question would look like, so I can recognise one when it arrives.\nDOES NOT: the sections that cannot change the decision, with the reason in a few words.\nCANNOT TELL: any section where the map does not carry enough for you to place it. Say what you would need to know.\n\n---\nThe bad-answer line is not optional and it is not a warning about invented facts. It is the shape of an answer that sounds responsive and does not settle the question: an answer that restates the section back to me, an answer that gives me a principle where I need a number, an answer that covers the general case when I asked about the exception.\nDo not answer any of the questions you generate. Do not recommend a decision. Do not tell me the document broadly supports or does not support anything.\n\nThe map:\n[paste the output of The Universal Document Map]\n\nThe decision I have to make:\n[state it in one sentence, including the option you are leaning towards]",
+      "use_case": "Turn a map into the short list of sections that can actually change your decision, and the question to put to each.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Map Itself",
+      "pack_title": "PATTERN-007: The DOCUMENT MAP Pattern",
+      "tags": [
+        "document-map",
+        "the-map-itself",
+        "decision-support",
+        "triage",
+        "questioning"
+      ],
+      "personas": [
+        "Consultant",
+        "Project Manager",
+        "Business Analyst",
+        "Team Lead"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Check The Map Against The Contents",
+      "prompt": "Here are two things: a map you produced of a document, and that document's own contents page. Diff them against each other and report only the differences.\n\nIN THE CONTENTS, NOT IN THE MAP: every section the contents page lists that does not appear in the map. Give the heading and number exactly as the contents page has them. This list is the finding.\nIN THE MAP, NOT IN THE CONTENTS: every section the map has that the contents page does not list. Unlisted sections are worth as much as skipped ones.\nSAME SECTION, DIFFERENT HEADING: where both have it but the wording differs, show both wordings side by side.\nNUMBERING BREAKS: any gap, repeat or out-of-order number in either one.\n\n---\nReport the differences and stop. Do not rebuild the map, do not explain a gap away, and do not tell me a difference is probably just formatting. A section that is in the contents and not in the map is exactly the section I would never have known to ask about.\nWhere the two agree completely, say so in one line rather than padding the output.\n\nThe map:\n[paste]\n\nThe contents page or section list, copied from the document:\n[paste]",
+      "use_case": "Diff a map against the document's own contents page, because the sections it skipped are the ones you would never think to ask about.",
+      "category": "Prompt Patterns",
+      "subcategory": "The Map Itself",
+      "pack_title": "PATTERN-007: The DOCUMENT MAP Pattern",
+      "tags": [
+        "document-map",
+        "the-map-itself",
+        "verification",
+        "quality-control",
+        "review"
+      ],
+      "personas": [
+        "Business Analyst",
+        "Quality Manager",
+        "Consultant",
+        "Technical Writer"
+      ]
+    },
+    {
+      "id": 52,
+      "title": "Grade The Draft Against The Brief",
+      "prompt": "Below are two things: the brief I gave, and the draft that came back. Grade the draft against the brief, line by line. Do not fix anything and do not rewrite anything.\n\nBreak my brief into its individual requirements first, one per line, including the ones I stated as constraints or format rather than content. Then mark every requirement:\n\nMET, and quote the words in the draft that meet it\nMISSED, and quote the words in the draft that fall short, plus what the brief asked for instead\nIGNORED, meaning nothing in the draft attempts it at all\n\nThen rank every MISSED and IGNORED by what it costs the person who reads this draft, worst first. Cost means what that reader does wrong, misunderstands, or fails to do because of it. Say the cost out loud for each one.\n\n---\nA MISSED you cannot support with a quote from the draft is not a MISSED. Delete it. Do not grade tone, elegance or flow unless my brief asked for them. Do not tell me the draft is strong overall, does a good job, or captures the essence of anything. Do not offer a single word of replacement text. The output is a graded list and nothing else.\n\nMy brief:\n[paste the original instructions you gave]\n\nThe draft:\n[paste]",
+      "use_case": "Make the model grade its own draft against your brief, quoted and ranked, before you touch anything.",
+      "category": "Prompt Patterns",
+      "subcategory": "Diagnose",
+      "pack_title": "PATTERN-006: The REVISION LOOP",
+      "tags": [
+        "revision-loop",
+        "diagnose",
+        "drafting",
+        "editing",
+        "quality-control"
+      ],
+      "personas": [
+        "Content Strategist",
+        "Product Manager",
+        "Technical Writer",
+        "Consultant"
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Split Defects From Taste",
+      "prompt": "Here is a brief and the draft that came back. I have opinions about this draft and I cannot tell which of them matter. Sort my problem with it into two lists and nothing else.\n\nBREAKS THE BRIEF: things that fail a requirement I actually stated. For each one, quote the requirement, quote the line in the draft, and say in one sentence what breaks.\n\nJUST DIFFERENT: things that are a legitimate choice the writer made, which I might not have made, but which no requirement rules out. For each one, quote the line and name the preference it collides with, whether that preference is mine or a convention.\n\nPut every item in exactly one list. Where something sits on the line, put it in JUST DIFFERENT and say what I would have to add to my brief to move it across.\n\n---\nDo not fix anything from either list. Do not tell me which JUST DIFFERENT items you would change anyway. Length, structure, word choice and register all belong in JUST DIFFERENT unless my brief set them. If BREAKS THE BRIEF comes back empty, say so plainly rather than promoting something to fill it.\n\nMy brief:\n[paste the original instructions you gave]\n\nThe draft:\n[paste]",
+      "use_case": "Separate what actually fails your brief from what is simply not how you would have written it.",
+      "category": "Prompt Patterns",
+      "subcategory": "Diagnose",
+      "pack_title": "PATTERN-006: The REVISION LOOP",
+      "tags": [
+        "revision-loop",
+        "diagnose",
+        "editing",
+        "requirements",
+        "feedback-quality"
+      ],
+      "personas": [
+        "Marketing Manager",
+        "Editor",
+        "Team Lead",
+        "Communications Manager"
+      ]
+    },
+    {
+      "id": 54,
+      "title": "Rank The Misses By Reader Cost",
+      "prompt": "Here is a draft and a list of things wrong with it. The list is longer than the round I have time for. Order it by what each miss costs the person who reads this, and draw a line under what is worth fixing now.\n\nFor each item on my list, one line each:\n- The reader consequence: what that person does wrong, misunderstands, or fails to do because of it. Where you cannot name a consequence, write NO READER COST\n- Who pays it: the decision maker, someone downstream of them, or only me\n\nThen output the list in a single order, worst consequence first, and put a line labelled CUT HERE at the point where the remaining items stop changing what the reader does. Everything below that line stays in the draft this round.\n\nFinish with any reader cost you can see in the draft that is not on my list at all, marked NOT ON YOUR LIST.\n\n---\nRank by consequence, not by how easy the fix looks and not by how wrong it feels to me. Where two items carry the same consequence, give them the same rank and say so rather than inventing a tiebreak. Do not fix anything above or below the line. Do not tell me the whole list is worth doing anyway.\n\nThe draft:\n[paste]\n\nMy list of what is wrong with it:\n[paste, one per line]",
+      "use_case": "Turn a long list of complaints into an ordered fix list with a cut line drawn under it.",
+      "category": "Prompt Patterns",
+      "subcategory": "Diagnose",
+      "pack_title": "PATTERN-006: The REVISION LOOP",
+      "tags": [
+        "revision-loop",
+        "diagnose",
+        "prioritisation",
+        "editing",
+        "reader-impact"
+      ],
+      "personas": [
+        "Product Manager",
+        "Program Manager",
+        "Content Strategist",
+        "Analyst"
+      ]
+    },
+    {
+      "id": 69,
+      "title": "Status Update Cold Read",
+      "prompt": "Someone forwarded me this status update with no message of their own on it. I do not know the project, the author, or what any earlier update said. You are [the reader, e.g. a steering committee sponsor who funds this and sees it once a month]. Read it once, at the speed that person would read it, caring about what they care about, and tell me what you came away believing.\n\nReport back:\n- Your one line verdict on how the work is going, in your own words\n- Whether it reads as getting better, getting worse, or as a flat snapshot with no direction in it. Quote the words that put you there, and if there are none, say the update gave you no sense of direction at all\n- Anything you took as off track, and the line that put it there. For each one, say whether the update calls it off track or you concluded that yourself\n- Who you think is holding the work right now, and whether anyone is waiting on anyone\n- What you believe happens next, and by when\n- The first thing you would have to go and ask before you could act on any of it\n\n---\nAnswer only from what is written. Do not guess at what the writer meant or at anything that happened outside the update. If something is not on the page, say it is not on the page. Keep off the writing itself.\n\nStatus update:\n[paste]",
+      "use_case": "Find out what a stakeholder actually believes about project health after reading your update.",
+      "category": "Prompt Patterns",
+      "subcategory": "Work & Project Tracking",
+      "pack_title": "PATTERN-005: The FRESH EYES Pattern",
+      "tags": [
+        "fresh-eyes",
+        "cold-read",
+        "status-updates",
+        "clean-session",
+        "project-management"
+      ],
+      "personas": [
+        "Project Manager",
+        "Program Manager",
+        "PMO Analyst",
+        "Operations Manager"
+      ]
+    },
+    {
+      "id": 70,
+      "title": "Project Brief Reverse Brief",
+      "prompt": "I found this project brief in a shared folder with no covering note and no author on it. I am telling you nothing else about it. Work backwards from the page alone and reconstruct the instructions you think the writer was given before they sat down to write it.\n\nReconstruct, in this order:\n- The objective this brief exists to serve, in one sentence\n- The audience it was written for, and how you can tell\n- The one decision or action it wants from that audience\n- The constraints the writer was clearly told about: money, dates, scope, people, anything fixed\n- What success looks like, and how anyone would know it had been reached\n- Anything the writer appears to have been told not to do: a boundary, an exclusion, an option ruled out before they started. Quote the words that carry it\n\nFor each item, quote the words on the page that let you recover it. Where the page does not carry an item, mark it NOT RECOVERABLE and move on. Do not close the gap with a sensible guess.\n\n---\nEverything you say has to trace back to a line in the brief. Do not tell me what the writer probably intended. Do not write a better brief and do not offer wording changes. A short list with several NOT RECOVERABLE entries is the right answer if that is what the page supports.\n\nProject brief:\n[paste]",
+      "use_case": "Recover the objective, audience and ask a brief carries, and see what it never carried at all.",
+      "category": "Prompt Patterns",
+      "subcategory": "Work & Project Tracking",
+      "pack_title": "PATTERN-005: The FRESH EYES Pattern",
+      "tags": [
+        "fresh-eyes",
+        "project-brief",
+        "reverse-brief",
+        "clean-session",
+        "project-management"
+      ],
+      "personas": [
+        "Project Manager",
+        "Product Manager",
+        "Business Analyst",
+        "Consultant"
+      ]
+    },
+    {
+      "id": 71,
+      "title": "Escalation Email Cold Read",
+      "prompt": "This email arrived in my inbox first thing this morning. You are [the reader, e.g. the ops manager it is addressed to, who owns the rota but not the budget]. I have never met the sender and I know nothing about the situation it describes. Read it as that person and tell me what landed.\n\nTell me:\n- What you think the sender wants from you specifically, in one sentence\n- The deadline you think you are working to, and whether the email states it or you filled it in\n- Who you think owns the next move: you, the sender, or someone else named in the email\n- What you would actually do with it: stop what you are doing and handle it now, fit it in before the end of today, put it somewhere this week, or leave it sitting. Pick one and quote the exact words that put it there\n- Anything you would have to go and ask before you could do what it wants\n\n---\nI want what reached you, not what the sender was trying to achieve. Where the ask or the deadline is not spelled out, say it is missing rather than supplying the one that would make sense. No redraft, and no notes on how it is written.\n\nEmail:\n[paste]",
+      "use_case": "Check whether the reader of an escalation knows what you want from them and how soon.",
+      "category": "Prompt Patterns",
+      "subcategory": "Work & Project Tracking",
+      "pack_title": "PATTERN-005: The FRESH EYES Pattern",
+      "tags": [
+        "fresh-eyes",
+        "cold-read",
+        "escalation",
+        "clean-session",
+        "email"
+      ],
+      "personas": [
+        "Team Lead",
+        "Support Manager",
+        "Service Desk Lead",
+        "Operations Manager"
+      ]
+    }
+  ]
+}

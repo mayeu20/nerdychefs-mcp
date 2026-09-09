@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "description": "NerdyChefs.ai Categories API",
+    "version": "1.0",
+    "total_categories": 1,
+    "generated_at": "2026-09-09T05:44:21.521Z",
+    "docs": "https://www.nerdychefs.ai/api"
+  },
+  "categories": [
+    {
+      "id": "prompt-patterns",
+      "name": "Prompt Patterns",
+      "description": "Reusable prompt patterns for accuracy, sourcing, and structured output. Use these where a wrong answer is worse than a blank one.",
+      "icon": "Crosshair",
+      "subcategories": [
+        "Business & Technical",
+        "Cold Read",
+        "Communication Processing",
+        "Diagnose",
+        "Document Review",
+        "Legal & Contractual",
+        "Policy & Regulatory",
+        "Repair",
+        "Research & Analysis",
+        "Stop",
+        "The Locator Itself",
+        "The Map Itself",
+        "Work & Project Tracking"
+      ],
+      "prompt_count": 136
+    }
+  ]
+}

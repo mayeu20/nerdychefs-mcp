@@ -1,0 +1,35 @@
+{
+  "name": "nerdychefs-mcp",
+  "version": "0.1.0",
+  "description": "MCP tools for the NerdyChefs.ai prompt library",
+  "type": "module",
+  "bin": { "nerdychefs-mcp": "dist/index.js" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "author": "Mathieu Kessler",
+  "homepage": "https://www.nerdychefs.ai",
+  "bugs": { "url": "https://github.com/mayeu20/nerdychefs-mcp/issues" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayeu20/nerdychefs-mcp"
+  },
+  "keywords": ["mcp", "model-context-protocol", "prompts", "nerdychefs"],
+  "packageManager": "pnpm@10.27.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "prepack": "pnpm build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "~1.30.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "description": "NerdyChefs.ai Personas API",
+    "version": "1.0",
+    "total_personas": 12,
+    "generated_at": "2026-09-09T05:44:21.639Z"
+  },
+  "personas": [
+    {
+      "name": "Analyst",
+      "count": 49
+    },
+    {
+      "name": "Business Analyst",
+      "count": 72
+    },
+    {
+      "name": "Communications Manager",
+      "count": 50
+    },
+    {
+      "name": "Compliance Manager",
+      "count": 18
+    },
+    {
+      "name": "Consultant",
+      "count": 87
+    },
+    {
+      "name": "Content Strategist",
+      "count": 38
+    },
+    {
+      "name": "Editor",
+      "count": 26
+    },
+    {
+      "name": "Legal Counsel",
+      "count": 66
+    },
+    {
+      "name": "Marketing Manager",
+      "count": 79
+    },
+    {
+      "name": "Operations Manager",
+      "count": 145
+    },
+    {
+      "name": "PMO Analyst",
+      "count": 12
+    },
+    {
+      "name": "Product Manager",
+      "count": 141
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "description": "NerdyChefs.ai Tags API",
+    "version": "1.0",
+    "total_tags": 12,
+    "generated_at": "2026-09-09T05:44:21.530Z"
+  },
+  "tags": [
+    {
+      "name": "audit",
+      "count": 23
+    },
+    {
+      "name": "citations",
+      "count": 4
+    },
+    {
+      "name": "claims",
+      "count": 3
+    },
+    {
+      "name": "clean-session",
+      "count": 11
+    },
+    {
+      "name": "cold-read",
+      "count": 18
+    },
+    {
+      "name": "decision-support",
+      "count": 6
+    },
+    {
+      "name": "diagnose",
+      "count": 4
+    },
+    {
+      "name": "document-map",
+      "count": 17
+    },
+    {
+      "name": "drafting",
+      "count": 2
+    },
+    {
+      "name": "editing",
+      "count": 24
+    },
+    {
+      "name": "email",
+      "count": 14
+    },
+    {
+      "name": "escalation",
+      "count": 9
+    }
+  ]
+}
