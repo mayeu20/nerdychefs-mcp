@@ -1,6 +1,6 @@
 {
   "name": "nerdychefs-mcp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "MCP tools for the NerdyChefs.ai prompt library",
   "type": "module",
   "bin": {

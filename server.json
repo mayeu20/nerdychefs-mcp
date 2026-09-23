@@ -3,7 +3,7 @@
   "name": "io.github.mayeu20/nerdychefs-mcp",
   "title": "NerdyChefs Prompts",
   "description": "Search, browse and pick from the free NerdyChefs.ai prompt library from any MCP client.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": {
     "url": "https://github.com/mayeu20/nerdychefs-mcp",
     "source": "github"
@@ -13,7 +13,7 @@
     {
       "registryType": "npm",
       "identifier": "nerdychefs-mcp",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "runtimeHint": "npx",
       "transport": {
         "type": "stdio"

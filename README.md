@@ -17,7 +17,12 @@ It runs over stdio and fetches prompts when you first need them. Data stays in m
 | `list_personas` | Optional `top` (1 to 873, default 50), `query` | Personas ordered by count, then name. |
 | `list_tags` | Optional `top` (1 to 500, default 50), `query` | Tags ordered by count, then name. |
 
-Category, persona, and tag filters use case-insensitive exact matches. Pack queries search titles and descriptions. Persona and tag queries match part of a name. Search results omit prompt text unless requested.
+Category, persona, and tag filters use case-insensitive exact matches. Pack queries search titles and descriptions. Persona and tag queries match part of a name. Search results omit prompt text unless requested. Every argument above also carries its own description in the tool schema, so your client can show you the same detail inline.
+
+Two things catch people out, and both fail quietly rather than with an error:
+
+- **Filter on the category NAME, not its id.** `list_categories` returns both, and only `Engineering & DevOps` matches. The slug form `engineering-devops` returns an empty result.
+- **`get_prompt` ids are positions in the published prompt file, not ids from the website.** Use an id from `search_prompts`, `random_prompt` or `get_pack` in the same session. An id copied from a nerdychefs.ai page, or saved from last week, can name a different prompt.
 
 The resource `nerdychefs://pack/{slug}` returns the same JSON as `get_pack` with prompt summaries and no prompt text.
 
